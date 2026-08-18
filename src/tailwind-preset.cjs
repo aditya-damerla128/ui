@@ -10,6 +10,14 @@ module.exports = {
   // Safelist classes used by @mieweb/ui components that may not be detected
   // when components are imported from node_modules (especially with Tailwind CSS 4)
   safelist: [
+    // CaseManagementHeader — logical spacing, details grid, responsive
+    // built-in actions (icon-only below md):
+    '-ms-2',
+    'gap-x-10',
+    'hidden',
+    'max-w-[60%]',
+    'md:hidden',
+    'md:inline-flex',
     // Semantic colors
     'border-border',
     'border-input',
@@ -48,6 +56,10 @@ module.exports = {
     'bg-neutral-200',
     'dark:bg-neutral-700',
     'bg-primary-500',
+    // BusinessHoursEditor rules-variant day chips
+    'border-primary-800',
+    'bg-primary-800',
+    'text-white',
     'h-5',
     'w-9',
     'h-6',
@@ -150,7 +162,8 @@ module.exports = {
           foreground: 'var(--mieweb-muted-foreground, hsl(215.4 16.3% 46.9%))',
         },
         destructive: {
-          DEFAULT: 'var(--mieweb-destructive, var(--mieweb-destructive-500, hsl(0 72.2% 50.6%)))',
+          DEFAULT:
+            'var(--mieweb-destructive, var(--mieweb-destructive-500, hsl(0 72.2% 50.6%)))',
           foreground: 'var(--mieweb-destructive-foreground, hsl(210 40% 98%))',
         },
         success: {
@@ -199,6 +212,20 @@ module.exports = {
           '0%': { transform: 'scale(0.95)', opacity: '0' },
           '100%': { transform: 'scale(1)', opacity: '1' },
         },
+        'ozwell-message-flare': {
+          '0%': {
+            boxShadow:
+              '0 0 0 0 color-mix(in srgb, var(--mieweb-primary-700, #0b73a3) 34%, transparent)',
+          },
+          '70%': {
+            boxShadow:
+              '0 0 0 8px color-mix(in srgb, var(--mieweb-primary-700, #0b73a3) 0%, transparent)',
+          },
+          '100%': {
+            boxShadow:
+              '0 0 0 0 color-mix(in srgb, var(--mieweb-primary-700, #0b73a3) 0%, transparent)',
+          },
+        },
       },
       animation: {
         'fade-in': 'fade-in 150ms ease-out',
@@ -206,6 +233,7 @@ module.exports = {
         'slide-in-from-top': 'slide-in-from-top 150ms ease-out',
         'slide-in-from-bottom': 'slide-in-from-bottom 150ms ease-out',
         'scale-in': 'scale-in 150ms ease-out',
+        'ozwell-message-flare': 'ozwell-message-flare 1.8s ease-out',
       },
     },
   },
